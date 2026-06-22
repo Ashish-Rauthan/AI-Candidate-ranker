@@ -1,0 +1,52 @@
+# ===========================================================
+# PYTHON
+# ===========================================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ===========================================================
+# PUSH LATER — deck, demo app, metadata, sample data
+# ===========================================================
+# Remove a line from this section when you're ready to push
+# that file, then run: git add <file> && git commit
+docs/
+app/
+data/
+submission_metadata.yaml
+validate_submission.py
+
+# ===========================================================
+# NEVER PUSH
+# ===========================================================
+# Semantic index cache (rebuildable in ~2 min via rank.py)
+artifacts/
+
+# Ranked output files
+submission.csv
+*.csv.bak
+team_test.csv
+
+# Full candidate dataset (465MB — too large for git)
+data/candidates.jsonl
+data/candidates.jsonl.gz
+
+# Private internal analysis notes
+docs/internal_notes.md
+
+# ===========================================================
+# OS / EDITOR
+# ===========================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Streamlit secrets
+.streamlit/secrets.toml

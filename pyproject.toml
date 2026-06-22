@@ -1,0 +1,9 @@
+[project]
+name = "redrob-ranker"
+version = "1.0.0"
+description = "Hybrid rule-based + semantic candidate ranker for the Redrob Intelligent Candidate Discovery & Ranking Challenge"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
