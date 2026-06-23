@@ -1,0 +1,98 @@
+# Redrob Hackathon — Submission Metadata-
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "Team Not_Exist"
+
+primary_contact:
+  name: "Ashish Rauthan"
+  email: "ashishrauthan096@gmail.com"
+  phone: "+91-9411392432"
+
+team_members:
+  - name: "Ritin Gusain>"
+    email: "gauravgusain86@gmail.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/Ashish-Rauthan/AI-Candidate-ranker"
+
+sandbox_link: ""
+
+reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./submission.csv"
+# Single command that produces submission.csv from candidates.jsonl.
+# Measured runtime on a single CPU core / ~4GB RAM dev sandbox: ~135s cold
+# (no cached semantic index), ~30-45s warm (cached) -- comfortably inside
+# the spec's 5-minute / 16GB / CPU-only / no-network budget.
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11 laptop, Lenovo LOQ"
+  cpu_cores: ""
+  ram_gb: "24"
+  python_version: "Python 3.10.0"
+  os: "Windows 11 25H2"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true
+  pre_computation_time_minutes: 2
+  # The TF-IDF+SVD semantic index (artifacts/) is built on first run and
+  # cached to disk; rebuilding it from scratch takes ~1.5-2 minutes on a
+  # single CPU core. The ranking step itself (rank.py) completes in well
+  # under 5 minutes even including this build on a cold cache, and in
+  # under a minute once the cache is warm.
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude (Anthropic) as a development assistant: analyzing the
+  hackathon's data bundle and JD to design the scoring architecture,
+  writing and iterating on the Python implementation (config.py,
+  features.py, semantic.py, behavioral.py, consistency.py, scoring.py,
+  pipeline.py), writing tests, and validating output against the official
+  validate_submission.py script and the real candidates.jsonl dataset
+  across multiple iterations.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Hybrid ranker combining a TF-IDF + Truncated SVD semantic-similarity
+  layer (genuine dense-vector matching against the JD's affirmative
+  requirements only) with seven rule-based fit components derived
+  directly from the JD: title tier, must-have skill groups (with a
+  trust score that discounts skills claimed with little
+  proficiency/duration evidence -- the direct countermeasure to keyword
+  stuffing), experience-band fit, location, notice period, and education.
+  JD-explicit disqualifiers (consulting-only career, recent LLM-wrapper
+  pivot without prior depth, CV/speech-only without NLP/IR overlap,
+  closed-source-only with no external validation, title-chasing job-hops,
+  pure-research-only) apply as soft multiplicative penalties, not hard
+  cutoffs. An internal-consistency checker (consistency.py) detects
+  honeypot profiles by their stated impossibility (years-of-experience
+  vs. career-history mismatch, "expert" skills with near-zero duration,
+  overlapping employment dates) -- not by "looking suspicious" -- and
+  crushes their score near zero. Finally, the 23 redrob_signals are
+  combined into a bounded 0.55x-1.05x availability multiplier so a
+  qualified-but-dormant candidate is down-weighted without ever letting
+  pure activity override genuine skill mismatch. Runs in well under 5
+  minutes on a single CPU core for the full 100,000-candidate pool.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

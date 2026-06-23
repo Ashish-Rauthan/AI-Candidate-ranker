@@ -1,30 +1,3 @@
-"""
-scoring.py
-==========
-Combines every feature layer (title tier, must-have skills, experience
-band, location, notice period, education, semantic similarity) into one
-composite fit score, applies the disqualifier / honeypot / behavioral
-multipliers on top, and generates the human-readable `reasoning` string
-the submission spec requires.
-
-Score assembly, end to end:
-
-    base_fit  = weighted_sum(title, semantic, skills, experience,
-                              location, notice, education)   # in [0,1]
-    adjusted  = base_fit * disqualifier_multiplier * honeypot_multiplier
-    final     = adjusted * behavioral_multiplier
-
-`base_fit` answers "does this person's background match the role".
-`disqualifier_multiplier` encodes the JD's explicit "things we do NOT
-want" list. `honeypot_multiplier` crushes internally-impossible profiles
-near zero. `behavioral_multiplier` answers the separate question "can we
-actually reach and hire this person right now" -- kept as the outermost
-factor so it never overrides a genuine skills mismatch, but still moves a
-qualified-and-available candidate clearly above an equally-qualified but
-dormant one, per the JD's explicit instruction to down-weight inactive
-candidates.
-"""
-
 from __future__ import annotations
 
 import hashlib

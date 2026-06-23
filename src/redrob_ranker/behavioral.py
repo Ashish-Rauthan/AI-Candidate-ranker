@@ -1,39 +1,3 @@
-"""
-behavioral.py
-=============
-Converts `redrob_signals` (the 23 platform-activity fields) into a single
-bounded multiplier in [BEHAVIORAL_MULT_FLOOR, BEHAVIORAL_MULT_CEILING],
-applied on top of the skills/title/experience fit score.
-
-Per redrob_signals_doc.docx, these signals answer a different question than
-skill-fit: not "is this person qualified" but "can we actually hire this
-person right now". The doc's own example is the one we anchor to: a
-perfect-on-paper candidate who hasn't logged in for 6 months and has a 5%
-recruiter response rate is, for hiring purposes, not actually available.
-
-We deliberately keep this as a *multiplier*, not an additive term, and cap
-its range fairly tight (0.55x-1.05x by default). Two reasons:
-  1. The JD's own framing is "down-weight them appropriately" -- a
-     well-qualified-but-quiet candidate should drop several ranks, not get
-     buried below a 0.3-skill-match candidate who happens to be very active.
-  2. A multiplier that could swing to 0 would let pure availability noise
-     dominate the ranking, which is exactly the over-reliance on engagement
-     metrics the JD's "vibe check" section implicitly warns against (it asks
-     for systems thinking, not engagement-chasing).
-
-Signals used, grouped by what they actually measure:
-  - Recency / intent:     last_active_date, open_to_work_flag, signup recency
-  - Responsiveness:       recruiter_response_rate, avg_response_time_hours,
-                           interview_completion_rate
-  - Market interest in them: profile_views_received_30d, search_appearance_30d,
-                           saved_by_recruiters_30d (light signal only --
-                           this reflects how others rate them, somewhat
-                           circular for a ranking system to lean on heavily)
-  - Trust / verification:  verified_email, verified_phone, linkedin_connected
-  - Outcome history:       offer_acceptance_rate (handle -1 sentinel = no
-                           offer history -> neutral, not negative)
-"""
-
 from __future__ import annotations
 
 import math

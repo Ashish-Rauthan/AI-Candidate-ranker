@@ -1,35 +1,3 @@
-#!/usr/bin/env python3
-"""
-rank.py
-=======
-Single entry point that produces the submission CSV from candidates.jsonl,
-per submission_spec.docx section 10.3 ("your README must indicate a single
-command that produces the submission CSV from the candidates file").
-
-Usage
------
-    python rank.py --candidates ./data/candidates.jsonl --out ./submission.csv
-
-Optional flags
---------------
-    --artifacts-dir DIR   Where the semantic-index cache lives (default:
-                           ./artifacts). Safe to delete at any time; it will
-                           be rebuilt automatically on the next run.
-    --no-cache             Force a full rebuild of the semantic index even
-                           if a valid cache is present.
-    --top-n N               Number of ranked rows to output (default: 100,
-                           per the submission spec -- only change this for
-                           local experimentation, not for your final
-                           submission file).
-    --quiet                 Suppress progress logging.
-
-Compute footprint (measured during development, single CPU core,
-100,000-candidate full dataset): feature extraction ~25-45s, semantic
-index build ~90s on a cold cache / <5s on a warm cache, scoring + ranking
-<5s. Comfortably inside the spec's 5-minute / 16GB / CPU-only budget even
-on a cold cache, and well under a minute on a warm one.
-"""
-
 from __future__ import annotations
 
 import argparse

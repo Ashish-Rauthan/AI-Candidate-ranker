@@ -1,14 +1,5 @@
-# Core ranking pipeline dependencies.
-# Deliberately minimal: no torch, no transformer model downloads, no
-# network calls during ranking -- see semantic.py for why (submission
-# spec requires CPU-only, network-off, <=5min, <=16GB ranking).
 numpy>=1.26,<3.0
 pandas>=2.0,<4.0
 scikit-learn>=1.5,<2.0
-
-# Streamlit demo / sandbox app (app/streamlit_app.py). Not required for
-# `rank.py` itself -- only needed to run the hosted sandbox demo locally.
 streamlit>=1.35
-
-# Testing
 pytest>=8.0

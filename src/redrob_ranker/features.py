@@ -1,19 +1,3 @@
-"""
-features.py
-============
-All rule-based, JD-grounded feature scoring that does NOT depend on the
-TF-IDF/SVD semantic layer (that lives in semantic.py). Every function here
-returns both a numeric score AND a short human-traceable explanation,
-because the submission spec requires a `reasoning` column that references
-*specific facts* from the candidate profile -- we want the scoring code
-itself to already know which facts mattered, rather than reconstructing
-that after the fact with a separate heuristic.
-
-This module is the direct implementation of the JD's "skills inventory"
-section and its disqualifier list, using config.py constants exclusively
-so the weights/thresholds stay in one auditable place.
-"""
-
 from __future__ import annotations
 
 import re

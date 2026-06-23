@@ -1,5 +1,3 @@
-"""Tests for features.py."""
-
 from __future__ import annotations
 
 from redrob_ranker import config, features

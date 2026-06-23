@@ -1,21 +1,3 @@
-"""
-pipeline.py
-===========
-End-to-end orchestration, written to comply with the submission spec's
-compute constraints (<=5 min wall-clock, <=16GB RAM, CPU-only, no network)
-on the full 100,000-candidate pool, on commodity hardware.
-
-Memory design note: we never hold all 100,000 *raw* candidate dicts in
-memory at once. We stream the file once with io_utils.iter_candidates,
-and for each candidate immediately reduce it down to (a) a TF-IDF document
-string and (b) a small `_InterimRecord` of already-computed feature
-scores -- discarding the raw dict before moving to the next line. Only the
-final top-100 candidates need their full reasoning text, and the few
-display fields needed for that (title, company, years of experience) are
-captured into `_InterimRecord` during the single streaming pass, so a
-second file read is never required.
-"""
-
 from __future__ import annotations
 
 import time

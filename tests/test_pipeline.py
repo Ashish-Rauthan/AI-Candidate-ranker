@@ -1,7 +1,3 @@
-"""End-to-end pipeline tests on a small synthetic candidate pool (not the
-full 100K file -- fast enough to run on every commit / in CI).
-"""
-
 from __future__ import annotations
 
 import json

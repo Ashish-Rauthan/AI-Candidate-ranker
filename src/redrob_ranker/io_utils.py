@@ -1,17 +1,3 @@
-"""
-io_utils.py
-===========
-Streaming reader for candidates.jsonl. We never load the full 100K-record,
-~465MB file into memory as a Python list -- we stream it line by line and
-let the pipeline accumulate only the small, derived feature records it
-actually needs. This is what keeps the whole system comfortably inside the
-16GB / 5-minute compute budget regardless of machine.
-
-Transparently supports both a plain .jsonl file and a gzip-compressed
-.jsonl.gz file, since the hackathon bundle ships the latter and some
-participants may re-gzip or re-distribute the former.
-"""
-
 from __future__ import annotations
 
 import gzip

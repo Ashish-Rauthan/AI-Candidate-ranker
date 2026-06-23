@@ -1,35 +1,3 @@
-"""
-consistency.py
-===============
-Detects internally-impossible candidate profiles -- the "honeypots" the
-submission spec warns about ("~80 honeypot candidates with subtly
-impossible profiles ... forced to relevance tier 0 in the ground truth").
-
-Design philosophy: a honeypot is impossible *on its own terms* -- it
-contradicts itself -- not merely "weak". We deliberately check for
-internal contradictions (stated experience vs. actual career-history
-duration; "expert" proficiency with near-zero time spent on the skill;
-two simultaneously-current jobs; impossible date ranges) rather than
-guessing at "suspicious-looking" profiles, because the latter risks
-flagging genuinely strong-but-unusual candidates.
-
-These thresholds were derived empirically against the real
-candidates.jsonl (not the public sample) and validated two ways:
-  1. They flag ~70 candidates out of 100,000 -- closely matching the "~80
-     honeypots" the spec documents.
-  2. The flagged count is stable across a wide band of nearby threshold
-     choices (1.5-3.0 years for the mismatch check, 1-3 for the expert-zero
-     count), meaning we're sitting in a genuine gap between "normal noise"
-     and "deliberately impossible", not finely overfit to one number.
-
-One concrete validated example: CAND_0039754, "Senior Applied Scientist"
-at Meta, ranks in the top 15 by raw semantic similarity to the JD (career
-history mentions BGE, FAISS, NDCG/MRR, A/B testing -- everything the JD
-wants) yet claims years_of_experience=16.2 while career_history sums to
-only ~8.2 years. This module is what catches that candidate before it
-reaches the final ranking.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field

@@ -1,17 +1,3 @@
-"""
-config.py
-=========
-Single source of truth for every JD-derived constant used by the ranker:
-title tiers, must-have skill groups, consulting-firm detection, location
-tiers, honeypot thresholds, and composite-score weights.
-
-Every constant here is traceable to a specific line in job_description.docx
-or submission_spec.docx (see inline comments). Keeping all of this in one
-file means the scoring logic in features.py / scoring.py stays generic and
-auditable -- if a judge asks "why did Computer Vision Engineer get 0.40",
-the answer lives here, in one place, not buried in a formula.
-"""
-
 from __future__ import annotations
 
 # ---------------------------------------------------------------------------

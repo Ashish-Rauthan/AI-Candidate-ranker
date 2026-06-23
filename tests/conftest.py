@@ -1,8 +1,3 @@
-"""Shared pytest fixtures. Uses the public sample_candidates.json (50
-candidates) shipped in the hackathon bundle, so tests run fast and need no
-special setup beyond the repo itself.
-"""
-
 from __future__ import annotations
 
 import json

@@ -1,5 +1,3 @@
-"""Tests for consistency.py -- the honeypot detector."""
-
 from __future__ import annotations
 
 from redrob_ranker.consistency import check_consistency
