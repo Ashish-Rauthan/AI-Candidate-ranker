@@ -1,0 +1,1139 @@
+[
+  {
+    "candidate_id": "CAND_0000001",
+    "profile": {
+      "anonymized_name": "Aarav Saini",
+      "headline": "Software Engineer | Full-stack Developer",
+      "summary": "Full-stack dev with 5 years of experience in web and data projects.",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 5,
+      "current_title": "Software Engineer",
+      "current_company": "TechCorp",
+      "current_company_size": "201-500",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "TechCorp",
+        "title": "Software Engineer",
+        "start_date": "2022-01-15",
+        "end_date": null,
+        "duration_months": 18,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "201-500",
+        "description": "Building backend services."
+      }
+    ],
+    "education": [
+      {
+        "institution": "IIT Delhi",
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "start_year": 2013,
+        "end_year": 2017,
+        "grade": "8.5 CGPA",
+        "tier": "tier_1"
+      }
+    ],
+    "skills": [
+      { "name": "Python", "proficiency": "advanced", "endorsements": 10, "duration_months": 36 },
+      { "name": "JavaScript", "proficiency": "intermediate", "endorsements": 5, "duration_months": 24 }
+    ],
+    "certifications": [
+      { "name": "AWS Developer", "issuer": "Amazon", "year": 2021 }
+    ],
+    "languages": [
+      { "language": "English", "proficiency": "professional" },
+      { "language": "Hindi", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 90.0,
+      "signup_date": "2023-06-01",
+      "last_active_date": "2026-01-10",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 10,
+      "applications_submitted_30d": 1,
+      "recruiter_response_rate": 0.75,
+      "avg_response_time_hours": 12.0,
+      "skill_assessment_scores": { "Python": 85.0, "JavaScript": 70.5 },
+      "connection_count": 150,
+      "endorsements_received": 25,
+      "notice_period_days": 30,
+      "expected_salary_range_inr_lpa": { "min": 10.0, "max": 15.0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": true,
+      "github_activity_score": 50.0,
+      "search_appearance_30d": 20,
+      "saved_by_recruiters_30d": 2,
+      "interview_completion_rate": 0.8,
+      "offer_acceptance_rate": 0.5,
+      "verified_email": true,
+      "verified_phone": false,
+      "linkedin_connected": true
+    }
+  },
+  {
+    "candidate_id": "CAND_0000002",
+    "profile": {
+      "anonymized_name": "Meera Nair",
+      "headline": "Data Scientist | Deep Learning",
+      "summary": "10-year experience in ML and data science.",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 10.0,
+      "current_title": "Senior Data Scientist",
+      "current_company": "InnovateX",
+      "current_company_size": "1001-5000",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "InnovateX",
+        "title": "Senior Data Scientist",
+        "start_date": "2020-05-10",
+        "end_date": null,
+        "duration_months": 32,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "1001-5000",
+        "description": "Leading ML projects."
+      },
+      {
+        "company": "AlphaSolutions",
+        "title": "Data Scientist",
+        "start_date": "2015-03-01",
+        "end_date": "2020-05-09",
+        "duration_months": 62,
+        "is_current": false,
+        "industry": "IT Services",
+        "company_size": "1001-5000",
+        "description": "Developed predictive models."
+      }
+    ],
+    "education": [
+      {
+        "institution": "IIT Bombay",
+        "degree": "M.Tech",
+        "field_of_study": "Computer Science",
+        "start_year": 2011,
+        "end_year": 2013,
+        "grade": "9.1 CGPA",
+        "tier": "tier_1"
+      }
+    ],
+    "skills": [
+      { "name": "Python", "proficiency": "expert", "endorsements": 50, "duration_months": 96 },
+      { "name": "Machine Learning", "proficiency": "advanced", "endorsements": 40, "duration_months": 96 }
+    ],
+    "certifications": [],
+    "languages": [
+      { "language": "English", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 95.5,
+      "signup_date": "2022-11-20",
+      "last_active_date": "2026-04-15",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 5,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0.5,
+      "avg_response_time_hours": 48.0,
+      "skill_assessment_scores": { "Python": 90.0, "Machine Learning": 88.5 },
+      "connection_count": 500,
+      "endorsements_received": 100,
+      "notice_period_days": 45,
+      "expected_salary_range_inr_lpa": { "min": 25.0, "max": 30.0 },
+      "preferred_work_mode": "hybrid",
+      "willing_to_relocate": false,
+      "github_activity_score": 75.0,
+      "search_appearance_30d": 35,
+      "saved_by_recruiters_30d": 3,
+      "interview_completion_rate": 0.9,
+      "offer_acceptance_rate": 1.0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": true
+    }
+  },
+  {
+    "candidate_id": "CAND_0000003",
+    "profile": {
+      "anonymized_name": "Diya Kapoor",
+      "headline": "UX Designer | 8 yrs exp",
+      "summary": "Experienced UX designer with 8+ years in tech and e-commerce.",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 8,
+      "current_title": "Lead UX Designer",
+      "current_company": "RedTech",
+      "current_company_size": "51-200",
+      "current_industry": "E-commerce"
+    },
+    "career_history": [
+      {
+        "company": "RedTech",
+        "title": "Lead UX Designer",
+        "start_date": "2019-07-01",
+        "end_date": null,
+        "duration_months": 34,
+        "is_current": true,
+        "industry": "E-commerce",
+        "company_size": "51-200",
+        "description": "Leading design team."
+      }
+    ],
+    "education": [
+      {
+        "institution": "NIFT Delhi",
+        "degree": "B.Des",
+        "field_of_study": "Design",
+        "start_year": 2012,
+        "end_year": 2016,
+        "grade": "8.0 CGPA",
+        "tier": "tier_2"
+      }
+    ],
+    "skills": [
+      { "name": "Figma", "proficiency": "expert", "endorsements": 20, "duration_months": 72 },
+      { "name": "Photoshop", "proficiency": "advanced", "endorsements": 15, "duration_months": 96 }
+    ],
+    "certifications": [],
+    "languages": [
+      { "language": "English", "proficiency": "native" },
+      { "language": "Hindi", "proficiency": "professional" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 88.0,
+      "signup_date": "2023-01-10",
+      "last_active_date": "2026-05-05",
+      "open_to_work_flag": true,
+      "profile_views_received_30d": 8,
+      "applications_submitted_30d": 1,
+      "recruiter_response_rate": 0.4,
+      "avg_response_time_hours": 24.0,
+      "skill_assessment_scores": { "Figma": 95.0, "Photoshop": 85.0 },
+      "connection_count": 220,
+      "endorsements_received": 60,
+      "notice_period_days": 30,
+      "expected_salary_range_inr_lpa": { "min": 15.0, "max": 20.0 },
+      "preferred_work_mode": "remote",
+      "willing_to_relocate": true,
+      "github_activity_score": 0.0,
+      "search_appearance_30d": 10,
+      "saved_by_recruiters_30d": 1,
+      "interview_completion_rate": 0.7,
+      "offer_acceptance_rate": 0.75,
+      "verified_email": true,
+      "verified_phone": false,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000004",
+    "profile": {
+      "anonymized_name": "Arjun Singh",
+      "headline": "Project Manager | 7 yrs exp",
+      "summary": "Project manager in fintech.",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 7,
+      "current_title": "Project Manager",
+      "current_company": "FinServe",
+      "current_company_size": "501-1000",
+      "current_industry": "Finance"
+    },
+    "career_history": [
+      {
+        "company": "FinServe",
+        "title": "Project Manager",
+        "start_date": "2021-02-01",
+        "end_date": null,
+        "duration_months": 14,
+        "is_current": true,
+        "industry": "Finance",
+        "company_size": "501-1000",
+        "description": "Managing projects."
+      },
+      {
+        "company": "BizCorp",
+        "title": "Business Analyst",
+        "start_date": "2018-01-15",
+        "end_date": "2021-01-31",
+        "duration_months": 36,
+        "is_current": false,
+        "industry": "Finance",
+        "company_size": "501-1000",
+        "description": "Analyzed business data."
+      }
+    ],
+    "education": [],
+    "skills": [
+      { "name": "Project Management", "proficiency": "expert", "endorsements": 30 },
+      { "name": "Communication", "proficiency": "advanced", "endorsements": 25 }
+    ],
+    "certifications": [
+      { "name": "PMP", "issuer": "PMI", "year": 2020 }
+    ],
+    "languages": [
+      { "language": "English", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 92.5,
+      "signup_date": "2022-05-20",
+      "last_active_date": "2026-04-01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 12,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0.6,
+      "avg_response_time_hours": 72.0,
+      "skill_assessment_scores": {},
+      "connection_count": 300,
+      "endorsements_received": 120,
+      "notice_period_days": 60,
+      "expected_salary_range_inr_lpa": { "min": 12.0, "max": 18.0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": false,
+      "github_activity_score": -1,
+      "search_appearance_30d": 15,
+      "saved_by_recruiters_30d": 5,
+      "interview_completion_rate": 0.85,
+      "offer_acceptance_rate": 1.0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": true
+    }
+  },
+  {
+    "candidate_id": "CAND_0000005",
+    "profile": {
+      "anonymized_name": "Kabir Khan",
+      "headline": "HR Manager | 9 yrs",
+      "summary": "HR professional experienced in recruitment.",
+      "location": "Kolkata",
+      "country": "India",
+      "years_of_experience": 9,
+      "current_title": "HR Manager",
+      "current_company": "PeopleFirst",
+      "current_company_size": "201-500",
+      "current_industry": "Retail"
+    },
+    "career_history": [
+      {
+        "company": "PeopleFirst",
+        "title": "HR Manager",
+        "start_date": "2020-11-01",
+        "end_date": null,
+        "duration_months": 30,
+        "is_current": true,
+        "industry": "Retail",
+        "company_size": "201-500",
+        "description": "Overseeing HR."
+      }
+    ],
+    "education": [
+      {
+        "institution": "Delhi University",
+        "degree": "MBA",
+        "field_of_study": "Human Resources",
+        "start_year": 2010,
+        "end_year": 2012,
+        "grade": "7.9 CGPA",
+        "tier": "tier_3"
+      }
+    ],
+    "skills": [
+      { "name": "Recruitment", "proficiency": "advanced", "endorsements": 40 },
+      { "name": "Excel", "proficiency": "intermediate", "endorsements": 15 }
+    ],
+    "certifications": [
+      { "name": "SHRM-CP", "issuer": "SHRM", "year": 2019 }
+    ],
+    "languages": [
+      { "language": "English", "proficiency": "professional" },
+      { "language": "Bengali", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 89.0,
+      "signup_date": "2021-09-10",
+      "last_active_date": "2026-03-20",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 7,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0.55,
+      "avg_response_time_hours": 96.0,
+      "skill_assessment_scores": { "Recruitment": 92.0 },
+      "connection_count": 180,
+      "endorsements_received": 80,
+      "notice_period_days": 90,
+      "expected_salary_range_inr_lpa": { "min": 8.0, "max": 12.0 },
+      "preferred_work_mode": "hybrid",
+      "willing_to_relocate": true,
+      "github_activity_score": 0.0,
+      "search_appearance_30d": 8,
+      "saved_by_recruiters_30d": 2,
+      "interview_completion_rate": 0.6,
+      "offer_acceptance_rate": 0.9,
+      "verified_email": true,
+      "verified_phone": false,
+      "linkedin_connected": true
+    }
+  },
+  {
+    "candidate_id": "CAND_0000006",
+    "profile": {
+      "anonymized_name": "Sara Jaiswal",
+      "headline": "UI Developer | 3 yrs exp",
+      "summary": "Front-end developer specializing in web apps.",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 3,
+      "current_title": "UI Developer",
+      "current_company": "WebWorks",
+      "current_company_size": "11-50",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "WebWorks",
+        "title": "UI Developer",
+        "start_date": "2021-06-15",
+        "end_date": null,
+        "duration_months": 24,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "11-50",
+        "description": "Developing web interfaces."
+      }
+    ],
+    "education": [
+      {
+        "institution": "NIT Trichy",
+        "degree": "B.E.",
+        "field_of_study": "Computer Science",
+        "start_year": 2013,
+        "end_year": 2017,
+        "grade": "8.2 CGPA",
+        "tier": "tier_2"
+      }
+    ],
+    "skills": [
+      { "name": "HTML", "proficiency": "advanced", "endorsements": 12 },
+      { "name": "CSS", "proficiency": "advanced", "endorsements": 10 },
+      { "name": "JavaScript", "proficiency": "intermediate", "endorsements": 8 }
+    ],
+    "certifications": [],
+    "languages": [
+      { "language": "English", "proficiency": "professional" },
+      { "language": "Telugu", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 85.0,
+      "signup_date": "2023-02-20",
+      "last_active_date": "2026-04-10",
+      "open_to_work_flag": true,
+      "profile_views_received_30d": 15,
+      "applications_submitted_30d": 2,
+      "recruiter_response_rate": 0.65,
+      "avg_response_time_hours": 20.0,
+      "skill_assessment_scores": { "HTML": 80.0, "CSS": 78.0, "JavaScript": 72.0 },
+      "connection_count": 120,
+      "endorsements_received": 30,
+      "notice_period_days": 15,
+      "expected_salary_range_inr_lpa": { "min": 6.0, "max": 8.0 },
+      "preferred_work_mode": "remote",
+      "willing_to_relocate": false,
+      "github_activity_score": 10.0,
+      "search_appearance_30d": 12,
+      "saved_by_recruiters_30d": 3,
+      "interview_completion_rate": 0.75,
+      "offer_acceptance_rate": 0.5,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": true
+    }
+  },
+  {
+    "candidate_id": "CAND_0000007",
+    "profile": {
+      "anonymized_name": "Ananya Gupta",
+      "headline": "DevOps Engineer | 4 yrs exp",
+      "summary": "Focused on cloud infrastructure and automation.",
+      "location": "Pune",
+      "country": "India",
+      "years_of_experience": 4,
+      "current_title": "DevOps Engineer",
+      "current_company": "CloudNine",
+      "current_company_size": "51-200",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "CloudNine",
+        "title": "DevOps Engineer",
+        "start_date": "2022-01-05",
+        "end_date": null,
+        "duration_months": 20,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "51-200",
+        "description": "Managing cloud services."
+      },
+      {
+        "company": "InfraCorp",
+        "title": "System Admin",
+        "start_date": "2019-03-10",
+        "end_date": "2021-12-31",
+        "duration_months": 33,
+        "is_current": false,
+        "industry": "IT Services",
+        "company_size": "51-200",
+        "description": "Maintained servers."
+      }
+    ],
+    "education": [
+      {
+        "institution": "IIT Kharagpur",
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "start_year": 2011,
+        "end_year": 2015,
+        "grade": "8.7 CGPA",
+        "tier": "tier_1"
+      }
+    ],
+    "skills": [
+      { "name": "AWS", "proficiency": "advanced", "endorsements": 22, "duration_months": 36 },
+      { "name": "Docker", "proficiency": "advanced", "endorsements": 18, "duration_months": 30 }
+    ],
+    "certifications": [
+      { "name": "AWS Solutions Architect", "issuer": "Amazon", "year": 2022 }
+    ],
+    "languages": [
+      { "language": "English", "proficiency": "conversational" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 87.5,
+      "signup_date": "2023-03-01",
+      "last_active_date": "2026-06-15",
+      "open_to_work_flag": true,
+      "profile_views_received_30d": 9,
+      "applications_submitted_30d": 3,
+      "recruiter_response_rate": 0.4,
+      "avg_response_time_hours": 30.0,
+      "skill_assessment_scores": { "AWS": 88.0, "Docker": 85.0 },
+      "connection_count": 200,
+      "endorsements_received": 55,
+      "notice_period_days": 45,
+      "expected_salary_range_inr_lpa": { "min": 12.0, "max": 18.0 },
+      "preferred_work_mode": "hybrid",
+      "willing_to_relocate": true,
+      "github_activity_score": 20.0,
+      "search_appearance_30d": 18,
+      "saved_by_recruiters_30d": 4,
+      "interview_completion_rate": 0.7,
+      "offer_acceptance_rate": 0.85,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000008",
+    "profile": {
+      "anonymized_name": "Kabir Iyer",
+      "headline": "Marketing Specialist | 6 yrs exp",
+      "summary": "Marketing professional in FMCG sector.",
+      "location": "Ahmedabad",
+      "country": "India",
+      "years_of_experience": 6,
+      "current_title": "Marketing Specialist",
+      "current_company": "FMCG Co",
+      "current_company_size": "201-500",
+      "current_industry": "FMCG"
+    },
+    "career_history": [
+      {
+        "company": "FMCG Co",
+        "title": "Marketing Specialist",
+        "start_date": "2021-08-15",
+        "end_date": null,
+        "duration_months": 34,
+        "is_current": true,
+        "industry": "FMCG",
+        "company_size": "201-500",
+        "description": "Handling marketing campaigns."
+      },
+      {
+        "company": "RetailMart",
+        "title": "Sales Executive",
+        "start_date": "2017-05-01",
+        "end_date": "2021-07-31",
+        "duration_months": 50,
+        "is_current": false,
+        "industry": "Retail",
+        "company_size": "501-1000",
+        "description": "Managed sales territories."
+      }
+    ],
+    "education": [
+      {
+        "institution": "IIM Ahmedabad",
+        "degree": "MBA",
+        "field_of_study": "Marketing",
+        "start_year": 2013,
+        "end_year": 2015,
+        "grade": "9.0 CGPA",
+        "tier": "tier_1"
+      }
+    ],
+    "skills": [
+      { "name": "SEO", "proficiency": "intermediate", "endorsements": 8 },
+      { "name": "Content Writing", "proficiency": "advanced", "endorsements": 12 }
+    ],
+    "certifications": [
+      { "name": "Digital Marketing", "issuer": "Google", "year": 2019 }
+    ],
+    "languages": [
+      { "language": "English", "proficiency": "native" },
+      { "language": "Gujarati", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 93.0,
+      "signup_date": "2022-07-11",
+      "last_active_date": "2026-05-30",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 20,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0.6,
+      "avg_response_time_hours": 60.0,
+      "skill_assessment_scores": { "SEO": 75.0, "Content Writing": 80.0 },
+      "connection_count": 400,
+      "endorsements_received": 150,
+      "notice_period_days": 60,
+      "expected_salary_range_inr_lpa": { "min": 10.0, "max": 14.0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": false,
+      "github_activity_score": -1.0,
+      "search_appearance_30d": 25,
+      "saved_by_recruiters_30d": 6,
+      "interview_completion_rate": 0.88,
+      "offer_acceptance_rate": 0.95,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000009",
+    "profile": {
+      "anonymized_name": "Ishaan Patel",
+      "headline": "Customer Support | 2 yrs exp",
+      "summary": "IT support specialist.",
+      "location": "Jaipur",
+      "country": "India",
+      "years_of_experience": 2,
+      "current_title": "Support Engineer",
+      "current_company": "TechHelp",
+      "current_company_size": "1-10",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "TechHelp",
+        "title": "Support Engineer",
+        "start_date": "2024-01-01",
+        "end_date": null,
+        "duration_months": 6,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "1-10",
+        "description": "Providing tech support."
+      }
+    ],
+    "education": [],
+    "skills": [
+      { "name": "Customer Service", "proficiency": "intermediate", "endorsements": 5 }
+    ],
+    "certifications": [],
+    "languages": [
+      { "language": "English", "proficiency": "basic" },
+      { "language": "Hindi", "proficiency": "native" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 80.0,
+      "signup_date": "2024-01-05",
+      "last_active_date": "2026-06-20",
+      "open_to_work_flag": true,
+      "profile_views_received_30d": 5,
+      "applications_submitted_30d": 1,
+      "recruiter_response_rate": 0.0,
+      "avg_response_time_hours": 10.0,
+      "skill_assessment_scores": { "Customer Service": 60.0 },
+      "connection_count": 50,
+      "endorsements_received": 10,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 3.0, "max": 4.0 },
+      "preferred_work_mode": "flexible",
+      "willing_to_relocate": false,
+      "github_activity_score": -1.0,
+      "search_appearance_30d": 3,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0.4,
+      "offer_acceptance_rate": -1.0,
+      "verified_email": true,
+      "verified_phone": false,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000009",
+    "profile": {
+      "anonymized_name": "Duplicate Ishaan",
+      "headline": "Duplicate Entry",
+      "summary": "This entry has a duplicate candidate_id to test uniqueness.",
+      "location": "Jaipur",
+      "country": "India",
+      "years_of_experience": 2,
+      "current_title": "Support Engineer",
+      "current_company": "TechHelp",
+      "current_company_size": "1-10",
+      "current_industry": "IT Services"
+    },
+    "career_history": [],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 0,
+      "signup_date": "2024-01-05",
+      "last_active_date": "2026-06-20",
+      "open_to_work_flag": true,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "remote",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": -1.0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000010",
+    "profile": {
+      "anonymized_name": "Erroneous User",
+      "headline": "Invalid Candidate",
+      "summary": "This profile has multiple errors (missing fields, wrong types).",
+      "location": "Unknown",
+      "country": "India",
+      "years_of_experience": -1,
+      "current_title": "N/A",
+      "current_company": "N/A",
+      "current_company_size": "11-50",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "N/A",
+        "title": 123,
+        "start_date": "2025-13-01",
+        "end_date": "2020-12-01",
+        "duration_months": -5,
+        "is_current": "yes",
+        "industry": "IT Services",
+        "company_size": "100-1000",
+        "description": "Invalid career entry."
+      }
+    ],
+    "education": [
+      {
+        "institution": "Unknown University",
+        "degree": "B.Tech",
+        "field_of_study": "Engineering",
+        "start_year": 1960,
+        "end_year": 2050,
+        "grade": null,
+        "tier": "elite"
+      }
+    ],
+    "skills": [
+      { "name": "UnknownSkill", "proficiency": "master", "endorsements": -10 }
+    ],
+    "certifications": [
+      { "name": "None", "issuer": "None", "year": 1899 }
+    ],
+    "languages": [
+      { "language": "Esperanto", "proficiency": "fluent" }
+    ],
+    "redrob_signals": {
+      "profile_completeness_score": 150.0,
+      "signup_date": "2023-02-30",
+      "last_active_date": "2026-13-01",
+      "open_to_work_flag": "true",
+      "profile_views_received_30d": -5,
+      "applications_submitted_30d": -1,
+      "recruiter_response_rate": -0.5,
+      "avg_response_time_hours": -10,
+      "skill_assessment_scores": { "UnknownSkill": 120.0 },
+      "connection_count": -10,
+      "endorsements_received": -3,
+      "notice_period_days": 365,
+      "expected_salary_range_inr_lpa": { "min": -10, "max": -5 },
+      "preferred_work_mode": "office",
+      "willing_to_relocate": "no",
+      "github_activity_score": 200,
+      "search_appearance_30d": -1,
+      "saved_by_recruiters_30d": -2,
+      "interview_completion_rate": 1.5,
+      "offer_acceptance_rate": 2.0,
+      "verified_email": "yes",
+      "verified_phone": "no",
+      "linkedin_connected": "maybe"
+    }
+  },
+  {
+    "candidate_id": "WRONGFORMAT",
+    "profile": {
+      "anonymized_name": "Bad Format",
+      "headline": "Testing",
+      "summary": "Candidate ID pattern error",
+      "location": "Nowhere",
+      "country": "India",
+      "years_of_experience": 5,
+      "current_title": "N/A",
+      "current_company": "N/A",
+      "current_company_size": "201-500",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "None",
+        "title": "None",
+        "start_date": "01-01-2024",
+        "end_date": null,
+        "duration_months": 0,
+        "is_current": false,
+        "industry": "IT Services",
+        "company_size": "201-500",
+        "description": "Testing invalid candidate_id and date format."
+      }
+    ],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 100,
+      "signup_date": "01-06-2025",
+      "last_active_date": "2026-06-01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "remote",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": 0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000011",
+    "profile": {
+      "headline": "Missing Fields",
+      "summary": "This entry is missing required profile fields.",
+      "location": "Kolkata",
+      "country": "India",
+      "years_of_experience": 5,
+      "current_title": "Engineer",
+      "current_company": "BuildIt",
+      "current_company_size": "51-200",
+      "current_industry": "Construction"
+    },
+    "career_history": [
+      {
+        "company": "BuildIt",
+        "title": "Engineer",
+        "start_date": "2022-01-01",
+        "end_date": null,
+        "duration_months": 28,
+        "is_current": true,
+        "industry": "Construction",
+        "company_size": "51-200",
+        "description": "Missing profile fields."
+      }
+    ],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 0,
+      "signup_date": "2024-01-01",
+      "last_active_date": "2024-01-01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": 0,
+      "verified_email": false,
+      "verified_phone": false,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000012",
+    "profile": {
+      "anonymized_name": "Enum Error",
+      "headline": "Testing Enum",
+      "summary": "Invalid enum for company size and work mode.",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 4,
+      "current_title": "Tester",
+      "current_company": "TestCo",
+      "current_company_size": "2500",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "TestCo",
+        "title": "Tester",
+        "start_date": "2023-01-01",
+        "end_date": null,
+        "duration_months": 6,
+        "is_current": true,
+        "industry": "IT Services",
+        "company_size": "2500",
+        "description": "Testing invalid enum values."
+      }
+    ],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 50,
+      "signup_date": "2023-02-01",
+      "last_active_date": "2026-02-01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "telecommute",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": 0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000013",
+    "profile": {
+      "anonymized_name": "Date Error",
+      "headline": "Testing Dates",
+      "summary": "Incorrect date formats.",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 5,
+      "current_title": "Tester",
+      "current_company": "DateCo",
+      "current_company_size": "51-200",
+      "current_industry": "IT Services"
+    },
+    "career_history": [
+      {
+        "company": "DateCo",
+        "title": "Tester",
+        "start_date": "2023-02-30",
+        "end_date": "2023-14-01",
+        "duration_months": 0,
+        "is_current": false,
+        "industry": "IT Services",
+        "company_size": "51-200",
+        "description": "Testing invalid dates."
+      }
+    ],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 60,
+      "signup_date": "2023/01/01",
+      "last_active_date": "2026/01/01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": 0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000014",
+    "profile": {
+      "anonymized_name": "Range Error",
+      "headline": "Testing Ranges",
+      "summary": "Years of experience out of range.",
+      "location": "Goa",
+      "country": "India",
+      "years_of_experience": 51,
+      "current_title": "Traveler",
+      "current_company": "HolidayCo",
+      "current_company_size": "1-10",
+      "current_industry": "Tourism"
+    },
+    "career_history": [
+      {
+        "company": "HolidayCo",
+        "title": "Traveler",
+        "start_date": "2022-01-01",
+        "end_date": null,
+        "duration_months": 12,
+        "is_current": true,
+        "industry": "Tourism",
+        "company_size": "1-10",
+        "description": "Testing years_of_experience max."
+      }
+    ],
+    "education": [],
+    "skills": [
+      { "name": "Travel Planning", "proficiency": "intermediate", "endorsements": 5 }
+    ],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": 100,
+      "signup_date": "2024-01-01",
+      "last_active_date": "2026-01-01",
+      "open_to_work_flag": false,
+      "profile_views_received_30d": 0,
+      "applications_submitted_30d": 0,
+      "recruiter_response_rate": 0,
+      "avg_response_time_hours": 0,
+      "skill_assessment_scores": {},
+      "connection_count": 0,
+      "endorsements_received": 0,
+      "notice_period_days": 0,
+      "expected_salary_range_inr_lpa": { "min": 0, "max": 0 },
+      "preferred_work_mode": "onsite",
+      "willing_to_relocate": false,
+      "github_activity_score": 0,
+      "search_appearance_30d": 0,
+      "saved_by_recruiters_30d": 0,
+      "interview_completion_rate": 0,
+      "offer_acceptance_rate": 0,
+      "verified_email": true,
+      "verified_phone": true,
+      "linkedin_connected": false
+    }
+  },
+  {
+    "candidate_id": "CAND_0000015",
+    "profile": {
+      "anonymized_name": "Type Error",
+      "headline": "Testing Types",
+      "summary": "Incorrect data types in profile.",
+      "location": 12345,
+      "country": 67890,
+      "years_of_experience": "five",
+      "current_title": true,
+      "current_company": 2022,
+      "current_company_size": 500,
+      "current_industry": false
+    },
+    "career_history": [],
+    "education": [],
+    "skills": [],
+    "certifications": [],
+    "languages": [],
+    "redrob_signals": {
+      "profile_completeness_score": "full",
+      "signup_date": 20240101,
+      "last_active_date": 20260101,
+      "open_to_work_flag": "maybe",
+      "profile_views_received_30d": "none",
+      "applications_submitted_30d": "zero",
+      "recruiter_response_rate": "0.5",
+      "avg_response_time_hours": "20",
+      "skill_assessment_scores": "N/A",
+      "connection_count": "many",
+      "endorsements_received": "few",
+      "notice_period_days": "thirty",
+      "expected_salary_range_inr_lpa": "range",
+      "preferred_work_mode": 123,
+      "willing_to_relocate": "yes",
+      "github_activity_score": "score",
+      "search_appearance_30d": "15",
+      "saved_by_recruiters_30d": "3",
+      "interview_completion_rate": "0.8",
+      "offer_acceptance_rate": "0.6",
+      "verified_email": "true",
+      "verified_phone": "false",
+      "linkedin_connected": "no"
+    }
+  }
+]

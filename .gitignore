@@ -16,6 +16,7 @@ artifacts/
 # where to download it. Only the 50-candidate public sample is tracked.
 data/candidates.jsonl
 data/candidates.jsonl.gz
+data/test_sample.json
 
 # Outputs
 submission.csv
