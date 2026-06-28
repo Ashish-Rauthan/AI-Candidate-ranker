@@ -20,7 +20,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/Ashish-Rauthan/AI-Candidate-ranker"
 
-sandbox_link: ""
+sandbox_link: "https://ai-candidate-ranker-j3dfssbymzuokn3unl9sjs.streamlit.app"
 
 reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./submission.csv"
 # Single command that produces submission.csv from candidates.jsonl.
