@@ -110,6 +110,7 @@ MUST_HAVE_SKILL_GROUPS: dict[str, dict] = {
             "Embeddings", "Sentence Transformers", "Semantic Search",
             "Vector Search", "Hugging Face Transformers", "Fine-tuning LLMs",
             "RAG", "LlamaIndex", "Haystack",
+            "Vector Representations",       # dataset vocab — synonym for dense embeddings
         ],
         "weight": 0.30,
     },
@@ -117,6 +118,9 @@ MUST_HAVE_SKILL_GROUPS: dict[str, dict] = {
         "skills": [
             "Pinecone", "FAISS", "Weaviate", "Milvus", "Qdrant",
             "OpenSearch", "Elasticsearch", "pgvector", "BM25",
+            "Search Backend",               # dataset vocab — infra for search systems
+            "Search Infrastructure",        # dataset vocab — same cluster
+            "Search & Discovery",           # dataset vocab — product-layer search
         ],
         "weight": 0.30,
     },
@@ -130,7 +134,11 @@ MUST_HAVE_SKILL_GROUPS: dict[str, dict] = {
         "weight": 0.20,
     },
     "eval_for_ranking": {
-        "skills": ["Learning to Rank"],
+        "skills": [
+            "Learning to Rank",
+            "Ranking Systems",              # dataset vocab — directly maps to JD mandate
+            "Information Retrieval Systems",# dataset vocab — IR umbrella term
+        ],
         # NDCG / MRR / MAP / A-B-testing are not modeled as discrete `skills`
         # entries in this dataset -- they show up as free text inside
         # career_history descriptions instead, so we check both.
@@ -143,10 +151,24 @@ MUST_HAVE_SKILL_GROUPS: dict[str, dict] = {
 }
 
 # JD: "Things we'd like you to have but won't reject you for" -- small
-# additive bonus, not a hard requirement.
-NICE_TO_HAVE_SKILLS = ["LoRA", "QLoRA", "PEFT"]   # LLM fine-tuning (LoRA/QLoRA/PEFT)
-NICE_TO_HAVE_BONUS_PER_SKILL = 0.025
-NICE_TO_HAVE_BONUS_CAP = 0.06
+# additive bonus, not a hard requirement. Covers all four JD nice-to-have
+# categories: LLM fine-tuning, MLOps/experiment tracking, distributed systems
+# infra, and recommendation systems. Skill names drawn from the verified 133-
+# term dataset vocabulary. Per-skill bonus is lowered slightly (0.025 → 0.018)
+# so stacking many non-core nice-to-haves cannot leapfrog genuine must-have
+# skill coverage; cap raised (0.06 → 0.09) to allow up to five to contribute.
+NICE_TO_HAVE_SKILLS = [
+    # LLM fine-tuning (JD explicit)
+    "LoRA", "QLoRA", "PEFT",
+    # MLOps / experiment tracking (production ML maturity signal)
+    "Weights & Biases", "MLflow", "Kubeflow",
+    # Distributed systems / scale infra (JD explicit category)
+    "Kafka", "Spark", "Redis", "Kubernetes", "Docker",
+    # Recommendation systems (JD explicit nice-to-have)
+    "Recommendation Systems",
+]
+NICE_TO_HAVE_BONUS_PER_SKILL = 0.018   # lowered from 0.025 to prevent leapfrogging
+NICE_TO_HAVE_BONUS_CAP = 0.09          # raised from 0.06; allows up to 5 skills to fire
 
 # ---------------------------------------------------------------------------
 # 3. SKILL TRUST WEIGHTING
@@ -227,6 +249,14 @@ NLP_IR_OVERLAP_SKILLS = {
     "NLP", "Information Retrieval", "Semantic Search", "Vector Search",
     "Embeddings", "RAG", "LLMs", "Hugging Face Transformers",
     "Sentence Transformers", "BM25", "Learning to Rank", "Recommendation Systems",
+    # Additional dataset vocabulary confirmed by full skill scan:
+    "Natural Language Processing",   # synonym for NLP used in dataset
+    "Information Retrieval Systems", # dataset term covering IR broadly
+    "Ranking Systems",               # direct JD mandate — ranking pipelines
+    "Search & Discovery",            # product-layer search — clear IR overlap
+    "Search Backend",                # infra for search — clear IR overlap
+    "Search Infrastructure",         # same cluster
+    "Vector Representations",        # dense embedding outputs — synonym for Embeddings
 }
 CV_SPEECH_ONLY_PENALTY = 0.55
 

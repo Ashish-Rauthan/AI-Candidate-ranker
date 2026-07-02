@@ -14,21 +14,46 @@ def _open_text(path: str | Path):
 
 
 def iter_candidates(path: str | Path) -> Iterator[dict]:
-    """Yield one parsed candidate dict per non-blank line of the JSONL file.
+    """Yield one parsed candidate dict per candidate in the file.
 
-    Malformed lines are skipped with a printed warning rather than crashing
-    the whole run -- a single corrupt row should never take down a ranking
-    job over 100,000 candidates.
+    Supports two formats, auto-detected from the first non-whitespace byte:
+    - JSON array  (first char == '[') -- parsed in one shot, e.g. sample_candidates.json
+    - JSONL       (anything else)     -- streamed line-by-line for memory efficiency
+
+    Malformed JSONL lines are skipped with a printed warning rather than
+    crashing the whole run -- a single corrupt row should never take down a
+    ranking job over 100,000 candidates.
     """
     with _open_text(path) as f:
-        for line_no, line in enumerate(f, start=1):
-            line = line.strip()
-            if not line:
-                continue
+        # Peek at the first non-whitespace character to detect format.
+        first_char = ""
+        while True:
+            ch = f.read(1)
+            if ch == "":
+                return  # empty file
+            if ch.strip():
+                first_char = ch
+                break
+        f.seek(0)
+
+        if first_char == "[":
+            # JSON array -- parse whole file (typically small sample files)
             try:
-                yield json.loads(line)
+                for record in json.load(f):
+                    if isinstance(record, dict):
+                        yield record
             except json.JSONDecodeError as exc:
-                print(f"[io_utils] WARNING: skipping malformed line {line_no}: {exc}")
+                print(f"[io_utils] ERROR: could not parse JSON array from {path}: {exc}")
+        else:
+            # JSONL -- stream line by line (memory-efficient for 100K pool)
+            for line_no, line in enumerate(f, start=1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    yield json.loads(line)
+                except json.JSONDecodeError as exc:
+                    print(f"[io_utils] WARNING: skipping malformed line {line_no}: {exc}")
 
 
 def count_candidates(path: str | Path) -> int:

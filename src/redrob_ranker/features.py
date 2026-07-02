@@ -44,7 +44,14 @@ def compute_skill_trust(candidate: dict) -> dict[str, float]:
         # plausible; floor the duration factor at 0.25.
         duration_factor = max(0.25, duration_factor)
 
-        value = base * duration_factor
+        # Endorsements are the one externally-sourced validation signal per
+        # skill (other professionals vouching for the claim). Cap the boost
+        # at 20 endorsements to avoid outlier distortion; the factor adds at
+        # most +15% to the raw trust value.
+        endorsements = float(s.get("endorsements", 0) or 0)
+        endorsement_factor = 1.0 + 0.15 * min(1.0, endorsements / 20.0)
+
+        value = base * duration_factor * endorsement_factor
 
         if name in assessment_scores and prof in ("advanced", "expert"):
             if assessment_scores[name] < config.ASSESSMENT_CONTRADICTION_THRESHOLD:
@@ -67,7 +74,7 @@ class TitleScoreResult:
 
 def score_title(candidate: dict) -> TitleScoreResult:
     profile = candidate.get("profile", {})
-    current_title = profile.get("current_title", "")
+    current_title = str(profile.get("current_title", "") or "")
     base = config.TITLE_TIER_SCORE.get(current_title, config.DEFAULT_TITLE_TIER_SCORE)
 
     # Credit strong past titles even if the current title has drifted --
@@ -75,7 +82,7 @@ def score_title(candidate: dict) -> TitleScoreResult:
     past_bonus = 0.0
     best_past_title = None
     for ch in candidate.get("career_history", []) or []:
-        past_title = ch.get("title", "")
+        past_title = str(ch.get("title", "") or "")
         if past_title == current_title:
             continue
         past_score = config.TITLE_TIER_SCORE.get(past_title)
@@ -191,8 +198,8 @@ def score_experience_band(years_of_experience: float) -> float:
 # Location fit
 # ---------------------------------------------------------------------------
 def score_location(profile: dict, redrob_signals: dict) -> float:
-    location = (profile.get("location") or "").lower()
-    country = (profile.get("country") or "").lower()
+    location = str(profile.get("location") or "").lower()
+    country = str(profile.get("country") or "").lower()
     willing_relocate = bool(redrob_signals.get("willing_to_relocate", False))
 
     if country == "india":
@@ -216,6 +223,10 @@ def score_location(profile: dict, redrob_signals: dict) -> float:
 # ---------------------------------------------------------------------------
 def score_notice_period(notice_period_days: int | None) -> float:
     if notice_period_days is None:
+        return 0.7
+    try:
+        notice_period_days = int(notice_period_days)
+    except (TypeError, ValueError):
         return 0.7
     for threshold, score in config.NOTICE_PERIOD_SCORE_BREAKS:
         if notice_period_days <= threshold:
@@ -260,8 +271,8 @@ def score_disqualifiers(
 
     # --- Consulting-only career ------------------------------------------
     all_consulting = len(career) > 0 and all(
-        (ch.get("industry") or "").strip().lower() in config.CONSULTING_INDUSTRY_LABELS
-        or (ch.get("company") or "").strip().lower() in config.CONSULTING_COMPANY_NAMES
+        str(ch.get("industry") or "").strip().lower() in config.CONSULTING_INDUSTRY_LABELS
+        or str(ch.get("company") or "").strip().lower() in config.CONSULTING_COMPANY_NAMES
         for ch in career
     )
     if all_consulting:
@@ -290,7 +301,7 @@ def score_disqualifiers(
             )
 
     # --- CV/speech-only without NLP/IR overlap ----------------------------
-    skill_names = {s.get("name") for s in candidate.get("skills", []) or []}
+    skill_names = {s.get("name") for s in candidate.get("skills", []) or [] if s.get("name")}
     cv_speech_hits = skill_names & config.CV_SPEECH_ONLY_SKILLS
     nlp_ir_hits = skill_names & config.NLP_IR_OVERLAP_SKILLS
     if len(cv_speech_hits) >= 2 and len(nlp_ir_hits) == 0:
@@ -318,7 +329,7 @@ def score_disqualifiers(
     # --- Title-chaser / job-hopping pattern --------------------------------
     if len(career) >= config.TITLE_CHASER_MIN_JOBS:
         avg_tenure = statistics.mean(c.get("duration_months", 0) or 0 for c in career)
-        current_title_lower = (profile.get("current_title") or "").lower()
+        current_title_lower = str(profile.get("current_title") or "").lower()
         is_senior_title = any(
             w in current_title_lower for w in config.TITLE_CHASER_SENIOR_WORDS
         )
@@ -330,7 +341,7 @@ def score_disqualifiers(
             )
 
     # --- Pure-research career, no production deployment evidence ----------
-    current_title_lower = (profile.get("current_title") or "").lower()
+    current_title_lower = str(profile.get("current_title") or "").lower()
     if any(m in current_title_lower for m in config.PURE_RESEARCH_TITLE_MARKERS):
         career_text = " ".join((ch.get("description") or "") for ch in career)
         if not _PRODUCTION_EVIDENCE_RE.search(career_text):

@@ -11,7 +11,7 @@ primary_contact:
   phone: "+91-9411392432"
 
 team_members:
-  - name: "Ritin Gusain>"
+  - name: "Ritin Gusain"
     email: "gauravgusain86@gmail.com"
     role: "ML Engineer"
 
@@ -33,7 +33,7 @@ reproduce_command: "python rank.py --candidates ./data/candidates.jsonl --out ./
 # ============================================================================
 compute:
   platform: "Windows 11 laptop, Lenovo LOQ"
-  cpu_cores: ""
+  cpu_cores: "14"
   ram_gb: "24"
   python_version: "Python 3.10.0"
   os: "Windows 11 25H2"
@@ -54,38 +54,38 @@ ai_tools_used:
   - "Claude"
 
 ai_usage_summary: |
-  Used Claude (Anthropic) as a development assistant: analyzing the
-  hackathon's data bundle and JD to design the scoring architecture,
-  writing and iterating on the Python implementation (config.py,
-  features.py, semantic.py, behavioral.py, consistency.py, scoring.py,
-  pipeline.py), writing tests, and validating output against the official
-  validate_submission.py script and the real candidates.jsonl dataset
-  across multiple iterations.
+  Claude (Anthropic) assisted in development by doing the analysis of
+  the data package for the hackathon along with JD to develop the scoring
+  framework, developing and refining the Python code (config.py, features.py,
+  semantic.py, behavioral.py, consistency.py, scoring.py, pipeline.py),
+  writing tests, and checking the results against validate_submission.py and
+  candidates.jsonl.
 
 # ============================================================================
 # Approach summary
 # ============================================================================
 methodology_summary: |
-  Hybrid ranker combining a TF-IDF + Truncated SVD semantic-similarity
-  layer (genuine dense-vector matching against the JD's affirmative
-  requirements only) with seven rule-based fit components derived
-  directly from the JD: title tier, must-have skill groups (with a
-  trust score that discounts skills claimed with little
-  proficiency/duration evidence -- the direct countermeasure to keyword
-  stuffing), experience-band fit, location, notice period, and education.
-  JD-explicit disqualifiers (consulting-only career, recent LLM-wrapper
-  pivot without prior depth, CV/speech-only without NLP/IR overlap,
-  closed-source-only with no external validation, title-chasing job-hops,
-  pure-research-only) apply as soft multiplicative penalties, not hard
-  cutoffs. An internal-consistency checker (consistency.py) detects
-  honeypot profiles by their stated impossibility (years-of-experience
-  vs. career-history mismatch, "expert" skills with near-zero duration,
-  overlapping employment dates) -- not by "looking suspicious" -- and
-  crushes their score near zero. Finally, the 23 redrob_signals are
-  combined into a bounded 0.55x-1.05x availability multiplier so a
-  qualified-but-dormant candidate is down-weighted without ever letting
-  pure activity override genuine skill mismatch. Runs in well under 5
-  minutes on a single CPU core for the full 100,000-candidate pool.
+  Hybrid Ranker that combines TF-IDF & Truncated SVD
+  similarity matching (dense vector matching based on JD's positive
+  requirements only) with 7 fit components based on the JD: title level,
+  must-have skills (with a trust factor, which penalizes claims of skills
+  with poor duration/proficiency evidence -- the explicit penalty to
+  keyword stuffing), experience-band fit, location, notice period, and
+  education. JD-specific disqualification factors (only consulting
+  experience, LLM wrapper shift without prior experience, CV/speech only
+  without any natural language processing/Information Retrieval
+  background, closed source software only without any independent
+  verification, job hopping just to match titles, research only)
+  implemented as soft multiplicative penalties rather than hard cutoffs.
+  Internal consistency check (consistency.py) catches honeypots by the
+  stated impossibility (year of experience vs. Career history mismatch,
+  claiming "expert" skills with practically zero duration, conflicting
+  employment date) -- not by mere suspicion, and smashes the score close
+  to zero. Lastly, 23 redrob_signals are combined into an availability
+  multipler within 0.55x - 1.05x range -- to properly down-weight
+  otherwise dormant candidate without ever allowing activity to override
+  a skill mismatch. Runs in well under 5 minutes on a single CPU core
+  for 100,000 candidates pool.
 
 # ============================================================================
 # Declarations

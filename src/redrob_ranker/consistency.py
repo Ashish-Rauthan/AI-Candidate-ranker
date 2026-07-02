@@ -5,7 +5,7 @@ from datetime import date
 
 from . import config
 
-TODAY = date(2026, 6, 18)  # hackathon submission window reference date
+TODAY = date.today()  # always use the real current date
 
 
 def _parse_date(s: str | None) -> date | None:
@@ -38,8 +38,13 @@ def check_consistency(candidate: dict) -> ConsistencyResult:
     skills = candidate.get("skills", []) or []
 
     # --- Check 1: stated years_of_experience vs. summed career_history ----
-    yoe = float(profile.get("years_of_experience", 0) or 0)
-    total_months = sum(int(c.get("duration_months", 0) or 0) for c in career)
+    try:
+        yoe = float(profile.get("years_of_experience", 0) or 0)
+    except (TypeError, ValueError):
+        yoe = 0.0
+    # Guard: negative duration_months (malformed data) must not reduce the
+    # computed total and mask a real mismatch -- clamp each entry at 0.
+    total_months = sum(max(0, int(c.get("duration_months", 0) or 0)) for c in career)
     total_years = total_months / 12.0
     mismatch = abs(total_years - yoe)
     if mismatch > config.YOE_MISMATCH_THRESHOLD_YEARS:

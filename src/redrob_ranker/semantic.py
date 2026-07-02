@@ -12,7 +12,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from . import config
 
-ARTIFACT_VERSION = 2  # bump if build_document() or vectorizer params change
+ARTIFACT_VERSION = 3  # bumped: build_document recency-weights career history; adaptive min_df
 
 
 def build_document(candidate: dict) -> str:
@@ -20,22 +20,46 @@ def build_document(candidate: dict) -> str:
     TF-IDF. Repetition is used as a crude but effective term-weighting
     trick (headline/title/skills repeated => higher TF-IDF mass) without
     needing a custom weighted-vectorizer implementation.
+
+    Career history is now recency-weighted: the current role is repeated 3×,
+    the most-recent past role 2×, and older roles 1×. This helps the semantic
+    layer distinguish a candidate who is actively doing retrieval work today
+    from one whose retrieval experience is several roles in the past.
     """
     profile = candidate.get("profile", {})
     parts: list[str] = [
-        profile.get("headline", ""), profile.get("headline", ""),
-        profile.get("current_title", ""), profile.get("current_title", ""),
-        profile.get("current_title", ""),
-        profile.get("summary", ""),
+        str(profile.get("headline", "") or ""), str(profile.get("headline", "") or ""),
+        str(profile.get("current_title", "") or ""), str(profile.get("current_title", "") or ""),
+        str(profile.get("current_title", "") or ""),
+        str(profile.get("summary", "") or ""),
     ]
-    for ch in candidate.get("career_history", []) or []:
-        parts.append(ch.get("title", ""))
-        parts.append(ch.get("description", ""))
 
-    skill_names = [s.get("name", "") for s in candidate.get("skills", []) or []]
+    # Split career history into current and past, preserving order.
+    career = candidate.get("career_history", []) or []
+    current_jobs = [ch for ch in career if ch.get("is_current")]
+    past_jobs = [ch for ch in career if not ch.get("is_current")]
+
+    # Current role → 3× weight (most relevant to "what they do now")
+    for ch in current_jobs:
+        job_text = " ".join(filter(None, [
+            str(ch.get("title", "") or ""),
+            str(ch.get("description", "") or ""),
+        ]))
+        parts += [job_text] * 3
+
+    # Most-recent past role → 2×, older roles → 1×
+    for i, ch in enumerate(past_jobs):
+        job_text = " ".join(filter(None, [
+            str(ch.get("title", "") or ""),
+            str(ch.get("description", "") or ""),
+        ]))
+        parts += [job_text] * (2 if i == 0 else 1)
+
+    skill_names = [s.get("name") or "" for s in candidate.get("skills", []) or []]
     skill_text = " ".join(skill_names)
     parts.append(skill_text)
-    parts.append(skill_text)  # weight skills x2
+    parts.append(skill_text)
+    parts.append(skill_text)  # weight skills ×3 (up from ×2)
 
     for e in candidate.get("education", []) or []:
         parts.append(e.get("field_of_study", ""))
@@ -121,11 +145,24 @@ def build_index(
     candidates on a single CPU core.
     """
     t0 = time.time()
+    n_docs = len(documents)
+    # min_df=2 removes hapax legomena on large pools (good for 100K).
+    # On small test files (<500 docs) rare-but-critical terms like 'pgvector'
+    # or 'LlamaIndex' may appear in only 1 candidate and would be silently
+    # dropped, producing wrong rankings in the Streamlit demo. Use min_df=1
+    # for small corpora so every term in the vocabulary is kept.
+    # On small corpora both min_df and max_df are relaxed so sklearn never
+    # prunes away all vocabulary. max_df=0.6 on e.g. 5 identical docs would
+    # remove every shared term (freq=1.0 in all 5 > 0.6 threshold).
+    if n_docs < 500:
+        min_df, max_df = 1, 1.0
+    else:
+        min_df, max_df = 2, 0.6
     vectorizer = TfidfVectorizer(
         max_features=30000,
         ngram_range=(1, 2),
-        min_df=2,
-        max_df=0.6,
+        min_df=min_df,
+        max_df=max_df,
         sublinear_tf=True,
     )
     X = vectorizer.fit_transform(documents)
@@ -134,7 +171,7 @@ def build_index(
 
     t1 = time.time()
     # n_components can't exceed min(n_samples, n_features) - 1 for SVD.
-    n_components = min(n_components, X.shape[1] - 1, X.shape[0] - 1)
+    n_components = max(1, min(n_components, X.shape[1] - 1, X.shape[0] - 1))
     svd = TruncatedSVD(n_components=n_components, random_state=42)
     embeddings = svd.fit_transform(X)
     if verbose:

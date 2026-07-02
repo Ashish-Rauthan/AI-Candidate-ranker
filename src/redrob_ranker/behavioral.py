@@ -6,11 +6,11 @@ from datetime import date
 
 from . import config
 
-TODAY = date(2026, 6, 18)
+TODAY = date.today()  # always use the real current date
 
 
 def _parse_date(s: str | None) -> date | None:
-    if not s:
+    if not s or not isinstance(s, str):
         return None
     try:
         return date.fromisoformat(s)
@@ -32,6 +32,10 @@ def _recency_score(last_active: str | None) -> float:
 def _notice_period_score(days: int | None) -> float:
     if days is None:
         return 0.7
+    try:
+        days = int(days)
+    except (TypeError, ValueError):
+        return 0.7
     for threshold, score in config.NOTICE_PERIOD_SCORE_BREAKS:
         if days <= threshold:
             return score
@@ -51,6 +55,16 @@ class BehavioralBreakdown:
     summary: str
 
 
+def _safe_float(v, default: float = 0.0) -> float:
+    """Coerce v to float, returning default on None or non-numeric strings."""
+    if v is None:
+        return default
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return default
+
+
 def score_behavioral(candidate: dict) -> BehavioralBreakdown:
     sig = candidate.get("redrob_signals", {}) or {}
 
@@ -61,16 +75,14 @@ def score_behavioral(candidate: dict) -> BehavioralBreakdown:
     recency_intent = 0.7 * recency + 0.3 * intent
 
     # --- Responsiveness --------------------------------------------------
-    response_rate = sig.get("recruiter_response_rate")
-    response_rate = 0.5 if response_rate is None else float(response_rate)
+    response_rate = _safe_float(sig.get("recruiter_response_rate"), default=0.5)
     resp_time = sig.get("avg_response_time_hours")
     # Map response time to [0,1]: <=24h great, >=120h poor, linear between.
     if resp_time is None:
         resp_time_score = 0.5
     else:
-        resp_time_score = max(0.0, min(1.0, 1.0 - (float(resp_time) - 24.0) / 96.0))
-    interview_completion = sig.get("interview_completion_rate")
-    interview_completion = 0.7 if interview_completion is None else float(interview_completion)
+        resp_time_score = max(0.0, min(1.0, 1.0 - (_safe_float(resp_time) - 24.0) / 96.0))
+    interview_completion = _safe_float(sig.get("interview_completion_rate"), default=0.7)
 
     responsiveness = (
         0.45 * response_rate + 0.30 * resp_time_score + 0.25 * interview_completion
@@ -85,10 +97,11 @@ def score_behavioral(candidate: dict) -> BehavioralBreakdown:
     trust = sum(trust_flags) / 3.0
 
     offer_accept = sig.get("offer_acceptance_rate", -1)
-    if offer_accept is not None and offer_accept >= 0:
+    offer_accept_f = _safe_float(offer_accept, default=-1.0)
+    if offer_accept_f >= 0:
         # blend in offer-acceptance history, but lightly -- a low rate can
         # simply mean the candidate is selective, not unavailable.
-        trust = 0.85 * trust + 0.15 * float(offer_accept)
+        trust = 0.85 * trust + 0.15 * offer_accept_f
 
     # --- Notice period (logistics, but behavioral in spirit: "can we
     #     actually onboard this person on a reasonable timeline") ---------

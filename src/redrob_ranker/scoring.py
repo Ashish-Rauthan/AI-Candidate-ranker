@@ -174,8 +174,12 @@ def generate_reasoning(breakdown: CandidateScoreBreakdown) -> str:
 
     # Notice period, when notably long.
     notice = breakdown.behavioral.notice_period_days
-    if notice is not None and notice > 60:
-        extra_clauses.append(f"{notice}-day notice period is on the longer side")
+    try:
+        notice_int = int(notice) if notice is not None else None
+    except (TypeError, ValueError):
+        notice_int = None
+    if notice_int is not None and notice_int > 60:
+        extra_clauses.append(f"{notice_int}-day notice period is on the longer side")
 
     # Disqualifier concerns, if any survived (these candidates can still be
     # in the top 100 if everything else is strong -- being honest about the

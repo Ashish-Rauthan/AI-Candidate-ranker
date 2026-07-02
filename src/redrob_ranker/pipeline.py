@@ -50,14 +50,23 @@ def _extract_interim(candidate: dict) -> tuple[_InterimRecord, str]:
     redrob_signals = candidate.get("redrob_signals", {}) or {}
     career = candidate.get("career_history", []) or []
 
+    # Safe numeric coercion: the sample dataset contains deliberately malformed
+    # entries (e.g. years_of_experience='five') that would crash float(). Treat
+    # any non-numeric value as 0 so the pipeline processes the whole file.
+    def _safe_float(v, default: float = 0.0) -> float:
+        try:
+            return float(v or 0)
+        except (TypeError, ValueError):
+            return default
+
     skill_trust = features.compute_skill_trust(candidate)
     title_result = features.score_title(candidate)
     must_have_result = features.score_must_have_skills(candidate, skill_trust)
     nice_to_have_bonus = features.score_nice_to_have(skill_trust)
 
-    total_career_years = sum(c.get("duration_months", 0) or 0 for c in career) / 12.0
+    total_career_years = sum(max(0, _safe_float(c.get("duration_months", 0))) for c in career) / 12.0
     experience_score = features.score_experience_band(
-        float(profile.get("years_of_experience", 0) or 0)
+        _safe_float(profile.get("years_of_experience", 0))
     )
     location_score = features.score_location(profile, redrob_signals)
     notice_score = features.score_notice_period(redrob_signals.get("notice_period_days"))
@@ -68,9 +77,9 @@ def _extract_interim(candidate: dict) -> tuple[_InterimRecord, str]:
 
     record = _InterimRecord(
         candidate_id=candidate["candidate_id"],
-        title=profile.get("current_title", ""),
-        company=profile.get("current_company", ""),
-        years_of_experience=float(profile.get("years_of_experience", 0) or 0),
+        title=str(profile.get("current_title", "") or ""),
+        company=str(profile.get("current_company", "") or ""),
+        years_of_experience=_safe_float(profile.get("years_of_experience", 0)),
         title_result=title_result,
         must_have_result=must_have_result,
         nice_to_have_bonus=nice_to_have_bonus,
