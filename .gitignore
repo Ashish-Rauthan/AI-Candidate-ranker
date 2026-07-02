@@ -19,7 +19,7 @@ data/candidates.jsonl.gz
 data/test_sample.json
 
 # Outputs
-submission.csv
+
 team_test.csv
 *.csv.bak
 

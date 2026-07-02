@@ -70,7 +70,10 @@ def main() -> int:
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(out_path, index=False, encoding="utf-8")
+    if out_path.suffix.lower() == ".xlsx":
+        df.to_excel(out_path, index=False)          # to_excel has no encoding param
+    else:
+        df.to_csv(out_path, index=False, encoding="utf-8")
 
     elapsed = time.time() - t0
     print(f"\nWrote {len(df)} ranked candidates to {out_path} in {elapsed:.1f}s total.")

@@ -51,7 +51,11 @@ def iter_candidates(path: str | Path) -> Iterator[dict]:
                 if not line:
                     continue
                 try:
-                    yield json.loads(line)
+                    record = json.loads(line)
+                    if not isinstance(record, dict):
+                        print(f"[io_utils] WARNING: skipping non-object line {line_no} (got {type(record).__name__})")
+                        continue
+                    yield record
                 except json.JSONDecodeError as exc:
                     print(f"[io_utils] WARNING: skipping malformed line {line_no}: {exc}")
 

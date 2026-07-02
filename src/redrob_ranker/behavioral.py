@@ -55,8 +55,9 @@ class BehavioralBreakdown:
     summary: str
 
 
-def _safe_float(v, default: float = 0.0) -> float:
-    """Coerce v to float, returning default on None or non-numeric strings."""
+def _safe_float(v, default=0.0):
+    """Coerce v to float, returning default on None or non-numeric strings.
+    Pass default=None to distinguish 'unparseable string' from a real zero."""
     if v is None:
         return default
     try:
@@ -78,10 +79,16 @@ def score_behavioral(candidate: dict) -> BehavioralBreakdown:
     response_rate = _safe_float(sig.get("recruiter_response_rate"), default=0.5)
     resp_time = sig.get("avg_response_time_hours")
     # Map response time to [0,1]: <=24h great, >=120h poor, linear between.
+    # Use a sentinel: if resp_time can't be parsed as a number (e.g. "fast"),
+    # fall back to neutral 0.5 rather than 0.0 which would give a perfect score.
     if resp_time is None:
         resp_time_score = 0.5
     else:
-        resp_time_score = max(0.0, min(1.0, 1.0 - (_safe_float(resp_time) - 24.0) / 96.0))
+        resp_time_f = _safe_float(resp_time, default=None)
+        if resp_time_f is None:
+            resp_time_score = 0.5  # unparseable string → neutral
+        else:
+            resp_time_score = max(0.0, min(1.0, 1.0 - (resp_time_f - 24.0) / 96.0))
     interview_completion = _safe_float(sig.get("interview_completion_rate"), default=0.7)
 
     responsiveness = (

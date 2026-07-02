@@ -55,7 +55,7 @@ def build_document(candidate: dict) -> str:
         ]))
         parts += [job_text] * (2 if i == 0 else 1)
 
-    skill_names = [s.get("name") or "" for s in candidate.get("skills", []) or []]
+    skill_names = [s.get("name", "") for s in candidate.get("skills", []) or []]
     skill_text = " ".join(skill_names)
     parts.append(skill_text)
     parts.append(skill_text)
@@ -170,7 +170,8 @@ def build_index(
         print(f"[semantic] TF-IDF fit_transform: shape={X.shape}, {time.time()-t0:.1f}s")
 
     t1 = time.time()
-    # n_components can't exceed min(n_samples, n_features) - 1 for SVD.
+    # n_components can't exceed min(n_samples, n_features) - 1 for SVD,
+    # and must be at least 1 (single-candidate input would give 0 otherwise).
     n_components = max(1, min(n_components, X.shape[1] - 1, X.shape[0] - 1))
     svd = TruncatedSVD(n_components=n_components, random_state=42)
     embeddings = svd.fit_transform(X)
